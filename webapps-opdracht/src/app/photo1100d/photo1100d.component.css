@@ -1,0 +1,22 @@
+ul{
+    margin: auto;
+    -webkit-padding-start: 0px;
+}
+
+li{
+    display: inline-block;
+}
+
+.custom_div{
+    margin: auto;
+    width: 85%;
+    border: 3px solid rgb(0, 0, 0);
+    text-align: center;
+    padding: 10px;
+}
+
+.custom_image{
+    margin: 6px;
+    border: 4px solid white;
+    box-shadow: rgb(37, 37, 37) 1px 1px 5px 1px;
+}

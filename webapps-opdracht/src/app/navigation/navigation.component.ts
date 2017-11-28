@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-  title = 'Gallery';
+  title1: string;
+  title2: string;
+  title3: string;
+  title4: string;
 
-  constructor() { }
+
+  constructor() {
+    this.title1 = 'Gallery';
+    this.title2 = 'Gallery2';
+    this.title3 = 'Gallery3';
+    this.title4 = 'Gallery4';
+   }
 
   ngOnInit() {
   }
