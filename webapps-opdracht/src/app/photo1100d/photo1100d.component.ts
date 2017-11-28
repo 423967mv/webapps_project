@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ImageService } from '../image.service';
+import { Component, OnInit, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-photo1100d',
@@ -8,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class Photo1100dComponent implements OnInit {
 
   title: string;
+  visibleImages = [];
 
-  constructor() {
-    this.title = "Orion Nebula";
+  constructor(private imageService: ImageService) {
+    this.title = 'Photos Canon 1100D';
+    this.visibleImages = this.imageService.getDummyImages();
   }
 
   ngOnInit() {
