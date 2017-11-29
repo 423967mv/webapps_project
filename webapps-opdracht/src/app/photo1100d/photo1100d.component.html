@@ -1,12 +1,8 @@
 <h2>{{title}}</h2>
 
+<app-navigation (menuItemClicked)="receive($event)"></app-navigation>
+
 <div class="ui medium images custom_div">
-    /* [class.active] verandert class naar active button bij click */
-    <button class="ui button" [class.active]="filterBy=='overview'" (click)="filterBy='overview'">Overview</button>
-    <button class="ui button" [class.active]="filterBy=='1100d'" (click)="filterBy='1100d'">Canon 1100D</button>
-    <button class="ui button" [class.active]="filterBy=='1000d'" (click)="filterBy='1000d'">Canon 1000D</button>
-    <button class="ui button" [class.active]="filterBy=='70ds'" (click)="filterBy='70ds'">Nikon D70s</button>
-    
     <ul>
         <li *ngFor="let im of visibleImages">
             <img class="ui medium rounded image custom_image" src="{{im.url}}">

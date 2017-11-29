@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Photo1100dComponent } from '../photo1100d/photo1100d.component';
+import { ImageService } from '../image.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-navigation',
@@ -7,20 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-  title1: string;
-  title2: string;
-  title3: string;
-  title4: string;
+  @Output()
+  menuItemClicked: EventEmitter<string> = new EventEmitter<string>();
 
+  private visibleImages: any[];
+  private title1: string;
+  private title2: string;
+  private title3: string;
+  private title4: string;
 
-  constructor() {
-    this.title1 = 'Gallery';
-    this.title2 = 'Gallery2';
-    this.title3 = 'Gallery3';
-    this.title4 = 'Gallery4';
-   }
+  constructor(private service: ImageService) {
+    this.title1 = 'All Pictures';
+    this.title2 = 'Canon 1100D';
+    this.title3 = 'Canon 1000D';
+    this.title4 = 'Nikon D70s';
+  }
 
   ngOnInit() {
+  }
+
+  onMenuItemClicked(gallery: string) {
+    this.menuItemClicked.emit(gallery);
   }
 
 }
