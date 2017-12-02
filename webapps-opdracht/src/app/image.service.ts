@@ -1,12 +1,25 @@
+import { Image } from './image/image.model';
 import { retry } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ImageService {
 
+  appUrl = 'http://localhost:3000/API/images/';
   visibleImages = [];
 
-  constructor() { }
+  constructor(private http: Http) { }
+
+  get images(): Observable<Image[]> {
+    return this.http.get(this.appUrl).map(response =>
+      response.json().map(item =>
+        new Image(item.id, item.gallery, item.description, item.url)
+      )
+    );
+  }
 
   getDummyImages() {
     return this.visibleImages = dummyImages.slice(0);
