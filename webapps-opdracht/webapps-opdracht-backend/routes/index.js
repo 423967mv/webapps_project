@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
-
 let mongoose = require('mongoose');
+// Connectie db @mLab
+mongoose.connect('mongodb://423967mv:s78!6pf@ds035995.mlab.com:35995/astrodb', {  useMongoClient: true });
 let Image = mongoose.model('Image');
 
 /* GET home page. */
