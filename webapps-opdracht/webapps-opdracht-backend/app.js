@@ -4,11 +4,18 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
+// Models importeren voor de router anders error!
+require('./models/Image');
 var index = require('./routes/index');
 var users = require('./routes/users');
 
+
 var app = express();
+
+// Connectie db @mLab
+mongoose.connect('mongodb://423967mv:s78!6pf@ds035995.mlab.com:35995/astrodb', {  useMongoClient: true });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
