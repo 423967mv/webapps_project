@@ -2,14 +2,13 @@ import { Image } from './image/image.model';
 import { retry } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ImageService {
 
-  appUrl = 'http://localhost:3000/API/images/';
-  visibleImages = [];
+  appUrl = 'http://localhost:4200/API/images/';
 
   constructor(private http: Http) { }
 
@@ -21,16 +20,13 @@ export class ImageService {
     );
   }
 
-  getDummyImages() {
-    return this.visibleImages = dummyImages.slice(0);
-  }
-
   // Filter afbeeldingen op basis van gallerij
-  filterImages(gallery: string) {
-    return this.visibleImages = dummyImages.filter(im => im.gallery === gallery);
+  filterImages(gallery: String) {
+    return this.images
+      .map(images => images.filter(im => im._gallery === gallery));
   }
 
-  getImage(id: number) {
+  getImage(id: Number) {
     return dummyImages.slice(0).find(image => image.id === id);
   }
 }

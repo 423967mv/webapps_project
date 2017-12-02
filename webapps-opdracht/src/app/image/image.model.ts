@@ -1,10 +1,10 @@
 export class Image {
-    private _id: Number;
-    private _gallery = String;
-    private _description = String;
-    private _url = String;
+     _id: Number;
+     _gallery: String;
+     _description: String;
+     _url: String;
 
-    constructor(id: Number, gallery = String, description = String, url = String) {
+    constructor(id: Number, gallery: String, description: String, url: String) {
         this._id = id;
         this._gallery = gallery;
         this._description = description;

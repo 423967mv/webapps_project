@@ -4,7 +4,7 @@
 
 <div class="ui medium images custom_div">
     <ul>
-        <li *ngFor="let im of visibleImages">
+        <li *ngFor="let im of visibleImages | async">
             <img class="ui medium rounded image custom_image" src="{{im.url}}">
         </li>
     </ul>
