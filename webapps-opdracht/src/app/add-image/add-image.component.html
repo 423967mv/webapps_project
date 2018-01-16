@@ -1,0 +1,31 @@
+<form [formGroup]="myForm" (ngSubmit)="addImage(myForm.value)" class="ui form">
+
+  <h1>Add image</h1>
+
+  <div class="three wide field">
+    <label>Gallery</label>
+    <select class="ui fluid search dropdown" formControlName="gallery">
+      <option value="">Select Gallery:</option>
+      <option value="1100d">1100d</option>
+      <option value="1000d">1000d</option>
+      <option value="d70s">d70s</option>
+    </select>
+  </div>
+  <div class="ui small info message" *ngIf="!myForm.controls['gallery'].valid && myForm.controls['gallery'].touched">Gallery is required.</div>
+
+  <div class="field">
+    <label>Description</label>
+    <textarea formControlName="description" rows="2"></textarea>
+  </div>
+  <div class="ui small info message" *ngIf="!myForm.controls['description'].valid && myForm.controls['description'].touched">A description is required.</div>
+
+  <div class="field">
+    <label>URL</label>
+    <input type="text" formControlName="url" placeholder="url">
+  </div>
+  <div class="ui small info message" *ngIf="!myForm.controls['url'].valid && myForm.controls['url'].touched">An image url is required.</div>
+
+
+  <button class="ui button" type="submit" [disabled]="!myForm.valid">Submit</button>
+
+</form>

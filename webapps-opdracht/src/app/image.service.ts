@@ -15,7 +15,7 @@ export class ImageService {
   get images(): Observable<Image[]> {
     return this.http.get(this.appUrl).map(response =>
       response.json().map(item =>
-        new Image(item.id, item.gallery, item.description, item.url)
+        new Image(item.gallery, item.description, item.url)
       )
     );
   }
@@ -26,7 +26,4 @@ export class ImageService {
       .map(images => images.filter(im => im._gallery === gallery));
   }
 
-  getImage(id: Number) {
-    return this.images.map(images => images.find(image => image._id === id));
-  }
 }

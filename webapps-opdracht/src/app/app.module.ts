@@ -7,6 +7,8 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { ImagesComponent } from './images/images.component';
 import { ImageService } from './image.service';
 import { ImageComponent } from './image/image.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddImageComponent } from './add-image/add-image.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,14 @@ import { ImageComponent } from './image/image.component';
     Photo1100dComponent,
     NavigationComponent,
     ImagesComponent,
-    ImageComponent
+    ImageComponent,
+    AddImageComponent
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ImageService],
   bootstrap: [AppComponent]
