@@ -1,0 +1,15 @@
+<form [formGroup]="deleteForm" (ngSubmit)="deleteImage(deleteForm.value)" class="ui form">
+
+    <h1>Delete image</h1>
+
+    <div class="seven wide field">
+        <label>Image</label>
+        <select class="ui fluid search dropdown" formControlName="image">
+            <option *ngFor="let im of imagesList | async" value="{{im._url}}">{{im._url}}</option>
+        </select>
+    </div>
+    <div class="ui small info message validationMessage" *ngIf="!deleteForm.controls['image'].valid && deleteForm.controls['image'].touched">You must select an image.</div>
+
+    <button class="ui button" type="submit" [disabled]="!deleteForm.valid">Delete</button>
+
+</form>

@@ -1,9 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 @import './3rdParty/semantic.min.css';
 
+.siteTitel {
+    text-align:center;
+    margin: 10px;
+}
+
 .mainDiv {
     padding-top: 5%;
     padding-right: 5%;
     padding-bottom: 5%;
     padding-left: 5%;
+}
+
+.validationMessage {
+    display: inline-block;
 }
