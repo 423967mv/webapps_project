@@ -1,3 +1,4 @@
+import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -9,6 +10,16 @@ import { ImageService } from './image.service';
 import { ImageComponent } from './image/image.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddImageComponent } from './add-image/add-image.component';
+import { Route } from '@angular/router/src/config';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HomeComponent } from './home/home.component';
+
+const appRoutes: Routes = [
+  { path: 'add-image', component: AddImageComponent },
+  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent }
+];
 
 @NgModule({
   declarations: [
@@ -17,13 +28,17 @@ import { AddImageComponent } from './add-image/add-image.component';
     NavigationComponent,
     ImagesComponent,
     ImageComponent,
-    AddImageComponent
+    AddImageComponent,
+    PageNotFoundComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [ImageService],
   bootstrap: [AppComponent]

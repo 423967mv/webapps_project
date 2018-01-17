@@ -1,11 +1,12 @@
-<h2>{{title}}</h2>
-
 <app-navigation (menuItemClicked)="receive($event)"></app-navigation>
+<div class="mainDiv">
+    <h2>{{title}}</h2>
 
-<div class="ui medium images custom_div">
-    <ul>
-        <li *ngFor="let im of visibleImages | async">
-            <img class="ui medium rounded image custom_image" src="{{im._url}}">
-        </li>
-    </ul>
+    <div class="ui medium images custom_div">
+        <ul>
+            <li *ngFor="let im of visibleImages | async">
+                <img class="ui medium rounded image custom_image" src="{{im._url}}">
+            </li>
+        </ul>
+    </div>
 </div>

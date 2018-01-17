@@ -16,7 +16,7 @@ export class Photo1100dComponent implements OnInit, OnChanges {
 
   constructor(imageService: ImageService) {
     this.imageService = imageService;
-    this.title = 'Photos Canon 1100D';
+    this.title = 'All images';
     // Default invulling gallerij
     this.visibleImages = this.imageService.images;
   }
@@ -27,6 +27,7 @@ export class Photo1100dComponent implements OnInit, OnChanges {
       this.visibleImages = this.imageService.images;
     } else {
       this.visibleImages = this.imageService.filterImages(newGallery);
+      this.title = 'Photos Canon ' + newGallery;
     }
   }
 
