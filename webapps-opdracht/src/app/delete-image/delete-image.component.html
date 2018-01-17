@@ -9,6 +9,7 @@
         </select>
     </div>
     <div class="ui small info message validationMessage" *ngIf="!deleteForm.controls['image'].valid && deleteForm.controls['image'].touched">You must select an image.</div>
+    <br>
 
     <button class="ui button" type="submit" [disabled]="!deleteForm.valid">Delete</button>
 

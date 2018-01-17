@@ -13,13 +13,13 @@
   </div>
   <div class="ui small info message validationMessage" *ngIf="!myForm.controls['gallery'].valid && myForm.controls['gallery'].touched">Gallery is required.</div>
 
-  <div class="field">
+  <div class="ten wide field">
     <label>Description</label>
     <textarea formControlName="description" rows="2"></textarea>
   </div>
   <div class="ui small info message validationMessage" *ngIf="!myForm.controls['description'].valid && myForm.controls['description'].touched">A description is required.</div>
 
-  <div class="field">
+  <div class="seven wide field">
     <label>URL</label>
     <input type="text" formControlName="url" placeholder="url">
   </div>
