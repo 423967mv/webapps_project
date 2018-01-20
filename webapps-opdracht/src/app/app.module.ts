@@ -3,7 +3,7 @@ import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { Photo1100dComponent } from './photo1100d/photo1100d.component';
+import { GalleryComponent } from './gallery/gallery.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ImagesComponent } from './images/images.component';
 import { ImageService } from './image.service';
@@ -28,7 +28,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    Photo1100dComponent,
+    GalleryComponent,
     NavigationComponent,
     ImagesComponent,
     ImageComponent,

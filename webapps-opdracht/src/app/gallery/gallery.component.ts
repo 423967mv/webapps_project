@@ -4,11 +4,11 @@ import { Component, Input, OnChanges, OnInit, EventEmitter } from '@angular/core
 import { Observable } from 'rxjs/Observable';
 
 @Component({
-  selector: 'app-photo1100d',
-  templateUrl: './photo1100d.component.html',
-  styleUrls: ['./photo1100d.component.css']
+  selector: 'app-gallery',
+  templateUrl: './gallery.component.html',
+  styleUrls: ['./gallery.component.css']
 })
-export class Photo1100dComponent implements OnInit, OnChanges {
+export class GalleryComponent implements OnInit, OnChanges {
 
   private title: string;
   private imageService: ImageService;

@@ -1,4 +1,4 @@
-import { Photo1100dComponent } from '../photo1100d/photo1100d.component';
+import { GalleryComponent } from '../gallery/Gallery.component';
 import { ImageService } from '../image.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
