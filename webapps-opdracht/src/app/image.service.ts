@@ -15,7 +15,7 @@ export class ImageService {
   get images(): Observable<Image[]> {
     return this.http.get(this.appUrl).map(response =>
       response.json().map(item =>
-        new Image(item.gallery, item.description, item.url)
+        new Image(item.title, item.gallery, item.description, item.url)
       )
     );
   }
@@ -24,6 +24,21 @@ export class ImageService {
   filterImages(gallery: String) {
     return this.images
       .map(images => images.filter(im => im._gallery === gallery));
+  }
+
+  // TODO afbeelding toevoegen
+  addImage(image) {
+    console.log('testAdd');
+  }
+
+  // TODO afbeelding updaten
+  saveImage(image) {
+    console.log('testSave');
+  }
+
+  // TODO afbeelding verwijderen
+  deleteImage(image) {
+    console.log('testDelete');
   }
 
 }

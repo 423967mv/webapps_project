@@ -2,6 +2,12 @@
 
   <h1>Add image</h1>
 
+  <div class="five wide field">
+    <label>Title</label>
+    <input type="text" formControlName="title" placeholder="title">
+  </div>
+  <div class="ui small info message validationMessage" *ngIf="!myForm.controls['title'].valid && myForm.controls['title'].touched">A title is required.</div>
+
   <div class="three wide field">
     <label>Gallery</label>
     <select class="ui fluid search dropdown" formControlName="gallery">

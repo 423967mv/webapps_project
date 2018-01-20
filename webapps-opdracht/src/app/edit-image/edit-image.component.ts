@@ -18,6 +18,7 @@ export class EditImageComponent implements OnInit {
   constructor(imageService: ImageService, private fb: FormBuilder) {
 
     this.editForm = fb.group({
+      'title': [null, Validators.required],
       'image': [null, Validators.required],
       'gallery': [null, Validators.required],
       'description': [null, Validators.required],
@@ -29,10 +30,9 @@ export class EditImageComponent implements OnInit {
   }
 
   saveImage(image) {
-    // TODO: Save
-    console.log('testSave');
+    // Updaten via service
+    this.imageService.saveImage(image);
   }
-
 
   ngOnInit() {
   }

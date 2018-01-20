@@ -20,9 +20,9 @@ router.get('/API/images/', function(req, res, next) {
 
 router.post('/API/images/', function (req, res, next) {
   let image = new Image(req.body);
-  image.save(function(err, rec) {
+  image.save(function(err, im) {
     if (err){ return next(err); }
-    res.json(rec);
+    res.json(im);
   });
 }); 
 

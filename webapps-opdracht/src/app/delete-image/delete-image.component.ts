@@ -26,8 +26,8 @@ export class DeleteImageComponent implements OnInit {
   }
 
   deleteImage(image) {
-    // TODO: Delete
-    console.log('testDelete');
+    // Delete via service
+    this.imageService.deleteImage(image);
   }
 
 
