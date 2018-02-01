@@ -4,15 +4,15 @@
 
     <div class="seven wide field">
         <label>Image</label>
-        <select class="ui fluid search dropdown" formControlName="image">
-            <option *ngFor="let im of imagesList | async" value="{{im._url}}">{{im._url}}</option>
+        <select class="ui fluid search dropdown" formControlName="id">
+            <option *ngFor="let im of imagesList | async" value="{{im._id}}">{{im._title}}</option>
         </select>
     </div>
-    <div class="ui small info message validationMessage" *ngIf="!editForm.controls['image'].valid && editForm.controls['image'].touched">You must select an image.</div>
+    <div class="ui small info message validationMessage" *ngIf="!editForm.controls['id'].valid && editForm.controls['id'].touched">You must select an image.</div>
     <br>
 
     <!-- Toon de andere velden enkel indien een afbeelding is geselecteerd -->
-    <div *ngIf="editForm.controls['image'].valid">
+    <div *ngIf="editForm.controls['id'].valid">
 
         <div class="five wide field">
             <label>Title</label>

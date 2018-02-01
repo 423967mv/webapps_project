@@ -16,7 +16,7 @@ export class ImageService {
   get images(): Observable<Image[]> {
     return this.http.get(this.appUrl).map(response =>
       response.json().map(item =>
-        new Image(item.title, item.gallery, item.description, item.url)
+        new Image(item._id, item.title, item.gallery, item.description, item.url)
       )
     );
   }
@@ -38,18 +38,31 @@ export class ImageService {
       },
       err => {
         console.log('An error occured.');
+        console.log(err);
       }
       );
   }
 
-  // TODO afbeelding updaten
+  // Afbeelding updaten
   saveImage(image) {
-    console.log('testSave');
+    return this.http.put(this.appUrl + image.id, image)
+      .map(res => res.json())
+      .subscribe(
+      res => {
+        console.log(res);
+        window.alert('Image updated succesfully!');
+      },
+      err => {
+        console.log('An error occured.');
+        console.log(err);
+      }
+      );
   }
 
-  // TODO afbeelding verwijderen
-  deleteImage(image) {
-    console.log('testDelete');
+  // Afbeelding verwijderen
+  deleteImage(imageId) {
+    console.log(imageId);
+    return this.http.delete(this.appUrl + imageId);
   }
 
 }

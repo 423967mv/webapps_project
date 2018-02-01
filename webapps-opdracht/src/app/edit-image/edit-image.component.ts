@@ -19,7 +19,7 @@ export class EditImageComponent implements OnInit {
 
     this.editForm = fb.group({
       'title': [null, Validators.required],
-      'image': [null, Validators.required],
+      'id': [null, Validators.required],
       'gallery': [null, Validators.required],
       'description': [null, Validators.required],
       'url': [null, Validators.required]

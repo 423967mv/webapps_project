@@ -18,16 +18,20 @@ export class DeleteImageComponent implements OnInit {
   constructor(imageService: ImageService, private fb: FormBuilder) {
 
     this.deleteForm = fb.group({
-      'image': [null, Validators.required],
+      'id': [null, Validators.required],
     });
 
     this.imageService = imageService;
     this.imagesList = imageService.images;
   }
 
-  deleteImage(image) {
-    // Delete via service
-    this.imageService.deleteImage(image);
+  deleteImage(selectedObject) {
+    // Delete via service en verwijderde image uit de lijst halen in UI
+    this.imageService.deleteImage(selectedObject.id)
+      .subscribe((data) => {
+        this.imagesList
+          .map(images => images.filter(im => im._id !== selectedObject.id));
+      });
   }
 
 
