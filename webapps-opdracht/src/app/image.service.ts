@@ -1,9 +1,10 @@
 import { Image } from './image/image.model';
 import { retry } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { retryWhen } from 'rxjs/operator/retryWhen';
 
 @Injectable()
 export class ImageService {
@@ -26,9 +27,19 @@ export class ImageService {
       .map(images => images.filter(im => im._gallery === gallery));
   }
 
-  // TODO afbeelding toevoegen
-  addImage(image) {
-    console.log('testAdd');
+  // Afbeelding toevoegen
+  addImage(image: Image) {
+    return this.http.post(this.appUrl, image)
+      .map(res => res.json())
+      .subscribe(
+      res => {
+        console.log(res);
+        window.alert('Image added succesfully!');
+      },
+      err => {
+        console.log('An error occured.');
+      }
+      );
   }
 
   // TODO afbeelding updaten

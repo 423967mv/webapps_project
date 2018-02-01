@@ -11,10 +11,9 @@ import { Image } from '../image/image.model';
 export class AddImageComponent implements OnInit {
 
   private imageService: ImageService;
-  newImage: Image;
-
+  image: Image;
   myForm: FormGroup;
-  post: any;
+
   title: String;
   gallery: String = '';
   description: String = '';
@@ -40,7 +39,6 @@ export class AddImageComponent implements OnInit {
     this.description = image.description;
     this.url = image.url;
 
-    this.newImage = new Image(image.title, image.gallery, image.description, image.url);
     // Toevoegen via service
     this.imageService.addImage(image);
   }
