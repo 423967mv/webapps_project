@@ -17,6 +17,7 @@ export class NavigationComponent implements OnInit {
   private title2: string;
   private title3: string;
   private title4: string;
+  private activeGallery = 'all';
 
   constructor(private service: ImageService) {
     this.title1 = 'All Pictures';
@@ -30,6 +31,15 @@ export class NavigationComponent implements OnInit {
 
   onMenuItemClicked(gallery: string) {
     this.menuItemClicked.emit(gallery);
+
+    // Change background color of previous menu item back to normal
+    const previousElement = document.getElementById(this.activeGallery);
+    previousElement.classList.remove('active');
+
+    // Change background color of the clicked menu item to active
+    this.activeGallery = gallery;
+    const element = document.getElementById(gallery);
+    element.classList.add('active');
   }
 
 }
