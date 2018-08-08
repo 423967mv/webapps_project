@@ -1,5 +1,6 @@
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -16,10 +17,15 @@ import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
 import { EditImageComponent } from './edit-image/edit-image.component';
 import { DeleteImageComponent } from './delete-image/delete-image.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { AuthenticationService } from './authentication.service';
+import { UserComponent } from './user/user.component';
 
 const appRoutes: Routes = [
   { path: 'admin', component: AdminComponent },
-  { path: 'add-image', component: AddImageComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
@@ -37,7 +43,10 @@ const appRoutes: Routes = [
     HomeComponent,
     AdminComponent,
     EditImageComponent,
-    DeleteImageComponent
+    DeleteImageComponent,
+    RegisterComponent,
+    LoginComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -45,9 +54,10 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
-  providers: [ImageService],
+  providers: [ImageService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
