@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 let mongoose = require('mongoose');
 const User = require('../models/User');
+const jwt = require('jsonwebtoken');
 
 // Connectie db @mLab
 mongoose.connect('mongodb://423967mv:s78!6pf@ds035995.mlab.com:35995/astrodb', {
@@ -90,7 +91,13 @@ router.post('/API/users/register', (req, res) => {
     if (error) {
       console.log(error)
     } else {
-      res.status(200).send(newUser)
+      let payload = {
+        subject: newUser._id
+      }
+      let token = jwt.sign(payload, process.env.BACKEND_SECRET)
+      res.status(200).send({
+        token
+      })
     }
   })
 })
@@ -111,7 +118,13 @@ router.post('/API/users/login', (req, res) => {
         if (user.password !== userData.password) {
           res.status(401).send('Invalid password!')
         } else {
-          res.status(200).send(user)
+          let payload = {
+            subject: user._id
+          }
+          let token = jwt.sign(payload, process.env.BACKEND_SECRET)
+          res.status(200).send({
+            token
+          })
         }
       }
     }
