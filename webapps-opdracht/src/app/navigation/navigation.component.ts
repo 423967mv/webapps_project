@@ -1,4 +1,3 @@
-import { GalleryComponent } from '../gallery/Gallery.component';
 import { ImageService } from '../image.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
