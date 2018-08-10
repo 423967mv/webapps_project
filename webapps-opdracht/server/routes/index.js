@@ -35,7 +35,7 @@ router.get('/API/images/', function (req, res, next) {
 });
 
 // Nieuwe afbeelding aanmaken
-router.post('/API/images/', function (req, res, next) {
+router.post('/API/images/',verifyToken, function (req, res, next) {
   let image = new Image();
 
   image.title = req.body.title;
@@ -52,7 +52,7 @@ router.post('/API/images/', function (req, res, next) {
 });
 
 // Update afbeelding
-router.put('/API/images/:id', function (req, res) {
+router.put('/API/images/:id',verifyToken, function (req, res) {
   Image.findByIdAndUpdate(req.params.id, {
       $set: {
         title: req.body.title,
@@ -72,7 +72,7 @@ router.put('/API/images/:id', function (req, res) {
 });
 
 // Delete afbeelding
-router.delete('/API/images/:id', function (req, res) {
+router.delete('/API/images/:id', verifyToken, function (req, res) {
   Image.findByIdAndRemove(req.params.id, function (err, deletedImage) {
     if (err) {
       return next(err);
@@ -81,7 +81,28 @@ router.delete('/API/images/:id', function (req, res) {
   });
 });
 
+
 // Users api
+// Middleware to protect API
+function verifyToken(req, res, next) {
+  if (!req.headers.authorization) {
+    return res.status(401).send('This request is not authorized!');
+  }
+
+  let token = req.headers.authorization.split(' ')[1] // Gets the part after 'Bearer'
+  if (token === 'null') {
+    return res.status(401).send('This request is not authorized!');
+  }
+
+  let payload = jwt.verify(token, process.env.BACKEND_SECRET);
+  if (!payload) {
+    return res.status(401).send('This request is not authorized!');
+  }
+
+  req.userId = payload.subject;
+  next();
+}
+
 // Register user
 router.post('/API/users/register', (req, res) => {
   let userData = req.body

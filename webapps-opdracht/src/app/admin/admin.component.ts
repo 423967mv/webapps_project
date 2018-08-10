@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-admin',
@@ -9,7 +10,7 @@ export class AdminComponent implements OnInit {
 
   private siteHeader = 'Administrator tools';
 
-  constructor() { }
+  constructor(private _authenticationService: AuthenticationService) { }
 
   ngOnInit() {
   }

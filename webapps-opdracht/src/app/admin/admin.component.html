@@ -1,6 +1,7 @@
 <div class="siteTitel">
   <h1 class="ui header">{{siteHeader}}</h1>
 </div>
+<a routerLink="/home" (click)="_authenticationService.logout()">Logout</a>
 <div class="mainDiv">
   <app-add-image></app-add-image>
   <br>
