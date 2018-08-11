@@ -6,42 +6,42 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+    selector: 'app-register',
+    templateUrl: './register.component.html',
+    styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
 
-  myForm: FormGroup;
-  username: String;
-  password: String;
-  newUser: User;
+    myForm: FormGroup;
+    username: String;
+    password: String;
+    newUser: User;
 
-  constructor(private _auth: AuthenticationService, private fb: FormBuilder, private _router: Router) {
-    this.myForm = fb.group({
-      'username': [null, Validators.required],
-      'password': [null, Validators.required]
-    });
-  }
+    constructor(private _auth: AuthenticationService, private fb: FormBuilder, private _router: Router) {
+        this.myForm = fb.group({
+            'username': [null, Validators.required],
+            'password': [null, Validators.minLength(8)]
+        });
+    }
 
-  registerUser(newUser) {
-    this.username = newUser.username;
-    this.password = newUser.password;
+    registerUser(newUser) {
+        this.username = newUser.username;
+        this.password = newUser.password;
 
-    console.log(newUser);
+        console.log(newUser);
 
-    this._auth.registerUser(newUser)
-      .subscribe(
-        res => {
-          console.log(res);
-          // Go to login component
-          this._router.navigate(['/login']);
-        },
-        error => console.log(error)
-      );
-  }
+        this._auth.registerUser(newUser)
+            .subscribe(
+                res => {
+                    console.log(res);
+                    // Go to login component
+                    this._router.navigate(['/login']);
+                },
+                error => console.log(error)
+            );
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 }
