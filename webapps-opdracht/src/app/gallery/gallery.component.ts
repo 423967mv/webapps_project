@@ -25,7 +25,7 @@ export class GalleryComponent implements OnInit, OnChanges {
       this.visibleImages = this.imageService.images;
     } else {
       this.visibleImages = this.imageService.filterImages(newGallery);
-      this.title = 'Photos Canon ' + newGallery;
+      this.title = 'Photos ' + newGallery;
     }
   }
 

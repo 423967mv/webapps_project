@@ -11,17 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeleteImageComponent implements OnInit {
 
-  private imageService: ImageService;
   private imagesList: Observable<Image[]>;
   deleteForm: FormGroup;
 
-  constructor(imageService: ImageService, private fb: FormBuilder) {
+  constructor(private imageService: ImageService, private fb: FormBuilder) {
 
     this.deleteForm = fb.group({
       'id': [null, Validators.required],
     });
 
-    this.imageService = imageService;
     this.imagesList = imageService.images;
   }
 

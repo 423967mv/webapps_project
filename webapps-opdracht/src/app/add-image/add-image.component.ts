@@ -10,7 +10,6 @@ import { Image } from '../image/image.model';
 })
 export class AddImageComponent implements OnInit {
 
-  private imageService: ImageService;
   image: Image;
   myForm: FormGroup;
 
@@ -20,7 +19,7 @@ export class AddImageComponent implements OnInit {
   url: String = '';
 
 
-  constructor(imageService: ImageService, private fb: FormBuilder) {
+  constructor(private imageService: ImageService, private fb: FormBuilder) {
 
     this.myForm = fb.group({
       'title': [null, Validators.required],
@@ -28,9 +27,6 @@ export class AddImageComponent implements OnInit {
       'description': [null, Validators.required],
       'url': [null, Validators.required]
     });
-
-    this.imageService = imageService;
-
   }
 
   addImage(image) {

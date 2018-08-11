@@ -11,11 +11,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditImageComponent implements OnInit {
 
-  private imageService: ImageService;
   private imagesList: Observable<Image[]>;
   editForm: FormGroup;
 
-  constructor(imageService: ImageService, private fb: FormBuilder) {
+  constructor(private imageService: ImageService, private fb: FormBuilder) {
 
     this.editForm = fb.group({
       'title': [null, Validators.required],
@@ -25,7 +24,6 @@ export class EditImageComponent implements OnInit {
       'url': [null, Validators.required]
     });
 
-    this.imageService = imageService;
     this.imagesList = imageService.images;
   }
 

@@ -1,25 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+
 @import './3rdParty/semantic.min.css';
+body {
+  background-image: url("http://users.telenet.be/weerplaats/backgroundastro2.png");
+}
 
 .siteTitel {
-    text-align:center;
-    margin: 10px;
+  text-align: center;
+  margin: 10px;
 }
 
 .mainDiv {
-    padding-top: 5%;
-    padding-right: 5%;
-    padding-bottom: 5%;
-    padding-left: 5%;
+  padding-top: 5%;
+  padding-right: 5%;
+  padding-bottom: 5%;
+  padding-left: 5%;
 }
 
 .validationMessage {
-    display: inline-block;
+  display: inline-block;
 }
 
-.headerLink{
-    text-align: right;
-    margin: 0.5em;
-    margin-right: 1em;
-    font-size: 1.25em;
+.headerLink {
+  text-align: right;
+  margin: 0.5em;
+  margin-right: 1em;
+  font-size: 1.25em;
 }

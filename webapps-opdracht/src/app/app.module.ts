@@ -22,6 +22,7 @@ import { AuthenticationService } from './authentication.service';
 import { UserComponent } from './user/user.component';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { FooterComponent } from './footer/footer.component';
 
 const appRoutes: Routes = [
   // Admin component is protected using the AuthGaurd
@@ -52,7 +53,8 @@ const appRoutes: Routes = [
     DeleteImageComponent,
     RegisterComponent,
     LoginComponent,
-    UserComponent
+    UserComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
