@@ -105,16 +105,15 @@ function verifyToken(req, res, next) {
 
 // Register user
 router.post('/API/users/register', (req, res) => {
-  let userData = req.body
-  let user = new User(userData)
+  let user = new User()
 
-
+  user.username = req.body.username;
+  user.setPassword(req.body.password)
 
   user.save((error, newUser) => {
     if (error) {
       console.log(error)
     } else {
-
       var today = new Date();
       var exp = new Date(today);
       exp.setDate(today.getDate() + 60);
@@ -134,10 +133,8 @@ router.post('/API/users/register', (req, res) => {
 
 // Login user
 router.post('/API/users/login', (req, res) => {
-  let userData = req.body
-
   User.findOne({
-    username: userData.username
+    username: req.body.username
   }, (error, user) => {
     if (error) {
       console.log(error)
@@ -145,7 +142,7 @@ router.post('/API/users/login', (req, res) => {
       if (!user) {
         res.status(401).send('Invalid username!')
       } else {
-        if (user.password !== userData.password) {
+        if (!user.validPassword(req.body.password)) {
           res.status(401).send('Invalid password!')
         } else {
           var today = new Date();
