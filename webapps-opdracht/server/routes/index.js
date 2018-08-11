@@ -35,7 +35,7 @@ router.get('/API/images/', function (req, res, next) {
 });
 
 // Nieuwe afbeelding aanmaken
-router.post('/API/images/',verifyToken, function (req, res, next) {
+router.post('/API/images/', verifyToken, function (req, res, next) {
   let image = new Image();
 
   image.title = req.body.title;
@@ -52,7 +52,7 @@ router.post('/API/images/',verifyToken, function (req, res, next) {
 });
 
 // Update afbeelding
-router.put('/API/images/:id',verifyToken, function (req, res) {
+router.put('/API/images/:id', verifyToken, function (req, res) {
   Image.findByIdAndUpdate(req.params.id, {
       $set: {
         title: req.body.title,
@@ -108,12 +108,21 @@ router.post('/API/users/register', (req, res) => {
   let userData = req.body
   let user = new User(userData)
 
+
+
   user.save((error, newUser) => {
     if (error) {
       console.log(error)
     } else {
+
+      var today = new Date();
+      var exp = new Date(today);
+      exp.setDate(today.getDate() + 60);
+
       let payload = {
-        subject: newUser._id
+        subject: newUser._id,
+        username: newUser.username,
+        exp: parseInt(exp.getTime() / 1000)
       }
       let token = jwt.sign(payload, process.env.BACKEND_SECRET)
       res.status(200).send({
@@ -139,8 +148,14 @@ router.post('/API/users/login', (req, res) => {
         if (user.password !== userData.password) {
           res.status(401).send('Invalid password!')
         } else {
+          var today = new Date();
+          var exp = new Date(today);
+          exp.setDate(today.getDate() + 60);
+
           let payload = {
-            subject: user._id
+            subject: user._id,
+            username: user.username,
+            exp: parseInt(exp.getTime() / 1000)
           }
           let token = jwt.sign(payload, process.env.BACKEND_SECRET)
           res.status(200).send({
