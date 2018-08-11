@@ -34,8 +34,6 @@ export class RegisterComponent implements OnInit {
       .subscribe(
         res => {
           console.log(res);
-          // Save token in local storage
-          localStorage.setItem('token', res.token);
           // Go to login component
           this._router.navigate(['/login']);
         },

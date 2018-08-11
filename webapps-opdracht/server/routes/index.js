@@ -114,16 +114,7 @@ router.post('/API/users/register', (req, res) => {
     if (error) {
       console.log(error)
     } else {
-      var today = new Date();
-      var exp = new Date(today);
-      exp.setDate(today.getDate() + 60);
-
-      let payload = {
-        subject: newUser._id,
-        username: newUser.username,
-        exp: parseInt(exp.getTime() / 1000)
-      }
-      let token = jwt.sign(payload, process.env.BACKEND_SECRET)
+      let token = newUser.generateJWT();
       res.status(200).send({
         token
       })
@@ -145,16 +136,7 @@ router.post('/API/users/login', (req, res) => {
         if (!user.validPassword(req.body.password)) {
           res.status(401).send('Invalid password!')
         } else {
-          var today = new Date();
-          var exp = new Date(today);
-          exp.setDate(today.getDate() + 60);
-
-          let payload = {
-            subject: user._id,
-            username: user.username,
-            exp: parseInt(exp.getTime() / 1000)
-          }
-          let token = jwt.sign(payload, process.env.BACKEND_SECRET)
+          let token = user.generateJWT();
           res.status(200).send({
             token
           })
