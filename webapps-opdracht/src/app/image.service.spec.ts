@@ -1,11 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { ImageService } from './image.service';
+import { Http, ConnectionBackend, RequestOptions, HttpModule } from '@angular/http';
 
 describe('ImageService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ImageService]
+      imports: [
+        HttpModule
+      ],
+      providers: [ImageService, Http, ConnectionBackend]
     });
   });
 

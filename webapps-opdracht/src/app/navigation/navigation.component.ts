@@ -1,5 +1,4 @@
-import { ImageService } from '../image.service';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-navigation',
@@ -18,7 +17,7 @@ export class NavigationComponent implements OnInit {
   private title4: string;
   private activeGallery = 'all';
 
-  constructor(private service: ImageService) {
+  constructor() {
     this.title1 = 'All Pictures';
     this.title2 = 'Canon 1100D';
     this.title3 = 'Canon 1000D';
