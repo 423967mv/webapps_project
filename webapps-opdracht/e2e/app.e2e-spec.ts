@@ -1,14 +1,26 @@
 import { AppPage } from './app.po';
+import { browser, by, element } from 'protractor';
 
-describe('webapps-opdracht App', () => {
+describe('Astrophoto gallery App', () => {
   let page: AppPage;
 
   beforeEach(() => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display landing page', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getLandingPageTitle()).toEqual('Astrophotography by Michael Verhaeghe');
+  });
+
+  it('should display Canon 1100D link', () => {
+    page.navigateTo();
+    expect(page.get1100dLink()).toEqual('Canon 1100D');
+  });
+
+  it('should go to login page', () => {
+    page.navigateTo();
+    page.getLoginLink().click();
+    expect(page.getLoginPageTitle()).toEqual('Log in');
   });
 });
