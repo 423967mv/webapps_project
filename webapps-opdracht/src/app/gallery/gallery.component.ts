@@ -1,6 +1,6 @@
 import { Image } from '../image/image.model';
 import { ImageService } from '../image.service';
-import { Component, Input, OnChanges, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
@@ -11,11 +11,9 @@ import { Observable } from 'rxjs/Observable';
 export class GalleryComponent implements OnInit, OnChanges {
 
   private title: string;
-  private imageService: ImageService;
   private visibleImages: Observable<Image[]>;
 
-  constructor(imageService: ImageService) {
-    this.imageService = imageService;
+  constructor(private imageService: ImageService) {
     this.title = 'All images';
     // Default invulling gallerij
     this.visibleImages = this.imageService.images;

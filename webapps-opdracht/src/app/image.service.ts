@@ -1,10 +1,8 @@
 import { Image } from './image/image.model';
-import { retry } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Http} from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import { retryWhen } from 'rxjs/operator/retryWhen';
 
 @Injectable()
 export class ImageService {
