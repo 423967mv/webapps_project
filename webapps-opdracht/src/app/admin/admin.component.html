@@ -1,15 +1,28 @@
-<div class="headerLink"><a routerLink="/home" (click)="_authenticationService.logout()">Logout</a></div>
-<div class="siteTitel">
-  <h1 class="ui header">{{siteHeader}}</h1>
+<div class="headerLink">
+  <i class="arrow alternate circle left outline icon"></i>
+  <a routerLink="/home" (click)="_authenticationService.logout()">
+    Logout</a>
 </div>
-<div class="mainDiv">
-  <app-add-image></app-add-image>
-  <br>
-  <hr>
-  <br>
-  <app-edit-image></app-edit-image>
-  <br>
-  <hr>
-  <br>
-  <app-delete-image></app-delete-image>
+<div class="siteTitel">
+  <h1 class="ui header title">{{siteHeader}}</h1>
+</div>
+
+<div class="ui three column grid">
+  <div class="three wide column">
+  </div>
+  <div class="ten wide column">
+    <div class="ui segment">
+      <app-add-image></app-add-image>
+      <br>
+      <hr>
+      <br>
+      <app-edit-image></app-edit-image>
+      <br>
+      <hr>
+      <br>
+      <app-delete-image></app-delete-image>
+    </div>
+  </div>
+  <div class="three wide column">
+  </div>
 </div>

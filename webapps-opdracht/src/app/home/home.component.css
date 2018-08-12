@@ -1,3 +1,25 @@
+i {
+  color: black;
+}
+
+a:link {
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+a:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+a:active {
+  color: black;
+  text-decoration: underline;
+}
+
 .bgDiv {
   background-color: white;
 }
