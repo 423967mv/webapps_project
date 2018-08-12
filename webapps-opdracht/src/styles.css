@@ -8,7 +8,7 @@ body {
 
 .siteTitel {
   text-align: center;
-  margin: 10px;
+  padding: 1em;
 }
 
 .mainDiv {
@@ -24,7 +24,7 @@ body {
 
 .headerLink {
   text-align: right;
-  margin: 0.5em;
-  margin-right: 1em;
+  padding: 0.5em;
+  padding-right: 1em;
   font-size: 1.25em;
 }

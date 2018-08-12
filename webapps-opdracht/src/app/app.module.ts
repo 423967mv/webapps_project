@@ -24,6 +24,7 @@ import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { FooterComponent } from './footer/footer.component';
 
+
 const appRoutes: Routes = [
   // Admin component is protected using the AuthGaurd
   {
@@ -63,7 +64,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [ImageService, AuthGuard, AuthenticationService,
     {
