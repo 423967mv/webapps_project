@@ -3,7 +3,7 @@
 @import './3rdParty/semantic.min.css';
 @import './assets/lytebox/lytebox.css';
 body {
-  background-image: url("http://users.telenet.be/weerplaats/backgroundastro2.png");
+  background-image: url("./assets/images/backgroundastro.png");
 }
 
 .siteTitel {
