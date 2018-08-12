@@ -12,19 +12,20 @@ import { Component, OnInit } from '@angular/core';
 export class EditImageComponent implements OnInit {
 
   private imagesList: Observable<Image[]>;
+
+  // Image with empty attributes prevents errors in interpolated input values
   private selected = {
     _id: '',
     _title: '',
     _gallery: '',
     _description: '',
     _url: ''
-
   };
   editForm: FormGroup;
 
   constructor(private imageService: ImageService, private fb: FormBuilder) {
 
-    // Message doesn't appear with minLength(1)
+    // Message doesn't appear using minLength(1)
     this.editForm = fb.group({
       'title': [this.selected._title, Validators.minLength(2)],
       'id': [this.selected._id, Validators.minLength(2)],

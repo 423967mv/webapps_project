@@ -12,7 +12,7 @@
   <br>
 
   <!-- Toon de andere velden enkel indien een afbeelding is geselecteerd -->
-  <div *ngIf="editForm.controls['id'].valid">
+  <div *ngIf="selected._title.length > 0">
 
     <div class="five wide field">
       <label>Title</label>
