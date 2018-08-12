@@ -1,20 +1,27 @@
-<form [formGroup]="myForm" (ngSubmit)="registerUser(myForm.value)" class="ui form">
+<div class="center-div">
 
-  <h1>Register</h1>
+  <form [formGroup]="myForm" (ngSubmit)="registerUser(myForm.value)" class="ui form">
+    <h1>Register</h1>
 
-  <div class="five wide field">
-    <label>Username</label>
-    <input type="text" formControlName="username" placeholder="username">
-  </div>
-  <div class="ui small info message validationMessage" *ngIf="!myForm.controls['username'].valid && myForm.controls['username'].touched">A username is required.</div>
+    <div class="ui stacked segment">
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="user icon"></i>
+          <input type="text" formControlName="username" placeholder="username">
+        </div>
+        <div class="ui small info message validationMessage" *ngIf="!myForm.controls['username'].valid && myForm.controls['username'].touched">A username is required.</div>
+      </div>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="lock icon"></i>
+          <input type="password" formControlName="password" placeholder="password">
+        </div>
+        <div class="ui small info message validationMessage" *ngIf="!myForm.controls['password'].valid && myForm.controls['password'].touched">A password is required and must be at least 8 characters long.</div>
 
-  <div class="seven wide field">
-    <label>Password</label>
-    <input type="password" formControlName="password" placeholder="password">
-  </div>
-  <div class="ui small info message validationMessage" *ngIf="!myForm.controls['password'].valid && myForm.controls['password'].touched">A password is required and must be at least 8 characters long.</div>
-  <br>
+      </div>
+      <button class="ui fluid large teal submit button" type="submit" [disabled]="!myForm.valid">Register</button>
 
-  <button class="ui button" type="submit" [disabled]="!myForm.valid">Register</button>
+    </div>
+  </form>
 
-</form>
+</div>
