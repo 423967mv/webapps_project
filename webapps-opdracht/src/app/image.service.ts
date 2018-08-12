@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ImageService {
 
-  appUrl = '/API/images/';
+  appUrl = 'http://18.216.187.147:3000/API/images/';
 
   constructor(private http: Http) { }
 
